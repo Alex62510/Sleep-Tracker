@@ -152,7 +152,7 @@ export default function Settings() {
   const angle = (elapsedMs / 1000) * 6;
 
   return (
-    <div className="w-full min-h-[calc(100vh-60px)] p-6 flex flex-col rounded shadow space-y-6">
+    <div className="w-full min-h-[calc(100vh-60px)] p-46 flex flex-col rounded shadow space-y-6">
       <h2 className="text-xl font-bold text-white mb-2">Настройки</h2>
 
       {/* Имя */}

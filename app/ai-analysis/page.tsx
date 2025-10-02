@@ -22,7 +22,7 @@ export default function AnalysisPage() {
 
   if (isLoading) return <Spinner size={12} centered />;
 
-  if (!data) return <div>Данные о сне отсутствуют</div>;
+  if (!data) return <div className={'min-h-[300px] flex items-center justify-center'}>Данные о сне отсутствуют</div>;
 
   return <SleepAnalysisCards sleepData={data} />;
 }
