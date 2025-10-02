@@ -43,7 +43,7 @@ export default function About() {
             <div className="p-6 bg-black rounded-lg shadow hover:shadow-lg transition">
               <div className="text-indigo-600 mb-4 text-4xl">📊</div>
               <h4 className="text-xl font-semibold mb-2">
-                Персонализированные отчёты
+                Персональные отчёты
               </h4>
               <p className="text-gray-300">
                 Получайте ежедневные и еженедельные отчёты о сне
