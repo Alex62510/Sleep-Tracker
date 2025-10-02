@@ -152,7 +152,7 @@ export default function Settings() {
   const angle = (elapsedMs / 1000) * 6;
 
   return (
-    <div className="w-full min-h-[calc(100vh-60px)] p-46 flex flex-col rounded shadow space-y-6">
+    <div className="w-full min-h-[calc(100vh-60px)] p-6 flex flex-col rounded shadow space-y-6">
       <h2 className="text-xl font-bold text-white mb-2">Настройки</h2>
 
       {/* Имя */}
@@ -268,7 +268,7 @@ export default function Settings() {
       </div>
 
       {/* Кнопки */}
-      <div className="mt-auto flex justify-end gap-4 pt-4">
+      <div className="mt-auto flex justify-center gap-4 pt-4">
         <button
           onClick={handleCancel}
           className="px-6 py-2 rounded border-2 border-[#1173d4] text-white hover:bg-[#1173d4]/10 transition"
