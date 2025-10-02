@@ -31,13 +31,14 @@ async function getSleepAnalyticsData(): Promise<
     return { error: "No records found" };
   }
 
-  const durations = records.map((r:any) => r.duration);
+  const durations = records.map((r: any) => r.duration);
   const totalRecords = records.length;
-  const averageDuration = durations.reduce((a:any, b:any) => a + b, 0) / totalRecords;
+  const averageDuration =
+    durations.reduce((a: any, b: any) => a + b, 0) / totalRecords;
   const shortestSleep = Math.min(...durations);
   const longestSleep = Math.max(...durations);
 
-  const recentRecords = records.slice(0, 7).map((r:any) => ({
+  const recentRecords = records.slice(0, 7).map((r: any) => ({
     date: r.date.toLocaleDateString("en-US", {
       weekday: "short",
       day: "numeric",

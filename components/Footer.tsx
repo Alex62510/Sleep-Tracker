@@ -26,7 +26,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <div className="z-10 fixed bottom-0 left-0 w-full ml-22 group-hover:ml-64 bg-gray-900 text-white py-6 px-6 text-center transition-all duration-300 border-t-2 border-blue-500 flex justify-around items-center gap-1">
+    <div className="fixed bottom-0 left-0 w-full ml-22 bg-gray-900 text-white py-6 px-6 text-center border-t-2 border-blue-500 flex flex-col md:flex-row justify-around items-center gap-1 transition-all duration-300">
       <span className="bg-gradient-to-r from-[#1173d4] via-white to-[#1173d4] bg-clip-text text-transparent animate-gradient-logo">
         © 2025 SleepTracker. Все права защищены.
       </span>
