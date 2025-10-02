@@ -12,7 +12,7 @@ interface ChartData {
 }
 
 interface GetSleepResult {
-  data?: ChartData;
+  data: ChartData | null;
   error?: string;
 }
 
@@ -26,7 +26,7 @@ function formatDateLabel(date: Date) {
 
 async function getSleepRecords(): Promise<GetSleepResult> {
   const user = await checkUser();
-  if (!user) return { error: "User not found" };
+  if (!user) return { data: null, error: "Пользователь не найден" };
 
   try {
     const records = await db.record.findMany({
@@ -35,20 +35,21 @@ async function getSleepRecords(): Promise<GetSleepResult> {
     });
 
     if (!records || records.length === 0) {
-      return { error: "No records found" };
+      // Возвращаем пустой объект данных вместо ошибки
+      return { data: { lineData: [], barData: [] } };
     }
 
     const lineData = [
       {
         id: "Sleep Cycles",
-        data: records.map((r:any) => ({
+        data: records.map((r: any) => ({
           x: formatDateLabel(r.date),
           y: r.duration,
         })),
       },
     ];
 
-    const barData = records.map((r:any) => ({
+    const barData = records.map((r: any) => ({
       day: formatDateLabel(r.date),
       hours: r.duration,
     }));
@@ -57,7 +58,8 @@ async function getSleepRecords(): Promise<GetSleepResult> {
   } catch (error) {
     console.error("Error fetching sleep data:", error);
     return {
-      error: "An unexpected error occurred while fetching sleep data.",
+      data: null,
+      error: "Произошла ошибка при загрузке данных сна",
     };
   }
 }
