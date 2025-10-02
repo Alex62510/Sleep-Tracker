@@ -9,7 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 export default function SleepDataPage() {
   const { addAlert } = useAlertStore();
 
-  const { data, isLoading, error } = useQuery({
+  const { data, isPending, error } = useQuery({
     queryKey: ["sleepData"],
     queryFn: async () => {
       const result = await getSleepRecords();
@@ -21,14 +21,14 @@ export default function SleepDataPage() {
     staleTime: 1000 * 60 * 5,
     retry: 1,
   });
-  console.log("data", data);
-  if (isLoading) {
-    return (
-      <div className="bg-slate-800 min-h-[300px] flex items-center justify-center">
-        <Spinner size={12} centered />
-      </div>
-    );
-  }
+  // console.log("data", data);
+  // if (isPending) {
+  //   return (
+  //     <div className="bg-slate-800 min-h-[300px] flex items-center justify-center">
+  //       <Spinner size={12} centered />
+  //     </div>
+  //   );
+  // }
 
   if (error) {
     addAlert("Произошла ошибка при загрузке данных сна 😕", "error");
